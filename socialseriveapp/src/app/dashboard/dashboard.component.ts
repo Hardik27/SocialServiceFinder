@@ -71,4 +71,7 @@ export class DashboardComponent implements OnInit {
     }
     )
   }
+  isNumber(contact: any): boolean {
+    return !isNaN(contact);
+  }
 }
