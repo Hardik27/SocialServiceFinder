@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   eventCity: string="";
   eventZip: string="";
   searchEventsQuery: string="";
+  eventResult: string="";
   searchQueryObject!:SearchQuery;
   startDate!: Date;
   endDate!: Date;
@@ -89,6 +90,7 @@ export class DashboardComponent implements OnInit {
     }
     console.log(this.searchQueryObject);
     this.dashboardService.searchEvents(this.searchQueryObject).subscribe((res)=>{
+      this.eventResult=JSON.stringify(res);
       console.log(res);
       this.searchEventsQuery="";
     },(err)=>{
