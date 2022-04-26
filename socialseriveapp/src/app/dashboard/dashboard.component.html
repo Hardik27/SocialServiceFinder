@@ -101,8 +101,8 @@
   <div class="col-lg-4" style="float:none;margin:auto;">
     <h2>SEARCH FOR EVENTS</h2>
   </div>
-  <form class="searchForm">
-    <input type="search" placeholder="Search Events...">
-    <button type="submit">Search</button>
+  <form class="searchForm" method="post">
+    <input type="text" class="searchBar" name="searchEventsQuery" placeholder="Search Events..." [(ngModel)]="searchEventsQuery">
+    <button class="searchButton" name="searchEventsButton" id="searchEventsButton" (click)="searchEvents()">Search</button>
   </form>
 </div>
