@@ -80,8 +80,17 @@ export class DashboardComponent implements OnInit {
       query: this.searchEventsQuery
     }
     console.log(this.searchQueryObject);
-    this.searchEventsQuery="";
-    // TO DO send to backend
+    this.dashboardService.searchEvents(this.searchQueryObject).subscribe((res)=>{
+      console.log(res)
+      this.searchEventsQuery="";
+    },(err)=>{
+      this.searchEventsQuery="";
+      this._snackBar.open('Search Fetch Failed!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      });
+    });
   }
 
   isNumber(contact: any): boolean {
