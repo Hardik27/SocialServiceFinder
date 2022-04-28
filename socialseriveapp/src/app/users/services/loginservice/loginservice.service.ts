@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Organiser } from '../../models/Organiser';
-import { User } from '../../models/User';
+import { User } from '../../models/user';
 
 const httpOptions = {
   header: new HttpHeaders({
@@ -28,6 +28,16 @@ export class LoginserviceService {
 
   public loginOrganiser(login: Login): Observable<Organiser>{
     return this.http.post<Organiser>(`${this.apiServerUrlOrg}/organization/login`,login);
+  }
+
+  public isUserLoggedIn() {
+    let user = localStorage.getItem('username')
+    console.log(!(user === null))
+    return !(user === null)
+  }
+
+  public logOut() {
+    sessionStorage.removeItem('username')
   }
   
 }

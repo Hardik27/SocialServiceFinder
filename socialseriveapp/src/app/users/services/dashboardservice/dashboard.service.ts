@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserregistrationService } from '../userregistrationservice/userregistration.service';
-import { User } from '../../models/User';
+import { User } from '../../models/user';
 import { Organiser } from '../../models/Organiser';
 import { Observable } from 'rxjs';
 import { Event } from '../../models/Event';
@@ -15,16 +15,19 @@ export class DashboardService {
   public isUser!: boolean; 
   private organisation!: Organiser;
   private apiServerUrlUser = environment.baseUrlEvent;
+  
   constructor(private http: HttpClient) { }
 
+
   public setUser(user :User){
-    this.user = user;
-    this.isUser = true;
+    this.user = JSON.parse(localStorage.getItem('userDetails') || '{}');
+    this.isUser = JSON.parse(localStorage.getItem('status') || '{}');
+    console.log(this.user);
   }
 
   public setOrgniser(organiser :Organiser){
-    this.organisation = organiser;
-    this.isUser = false;
+    this.organisation = JSON.parse(localStorage.getItem('orgDetails') || '{}');
+    this.isUser = JSON.parse(localStorage.getItem('status') || '{}');
   }
 
   public getUser():User{
