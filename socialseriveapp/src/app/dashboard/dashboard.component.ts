@@ -62,7 +62,8 @@ export class DashboardComponent implements OnInit {
       city: this.eventCity,
       pinCode: Number(this.eventZip),
       startDate: this.startDate,
-      endDate: this.endDate
+      endDate: this.endDate,
+      organizationName: this.organisation.name
     }
 
     console.log(this.createEventObject);
