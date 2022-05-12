@@ -5,6 +5,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { Event } from '../users/models/Event';
+import { FetchMyEvents } from '../users/models/FetchMyEvents';
 import { Organiser } from '../users/models/Organiser';
 import { SearchQuery } from '../users/models/SearchQuery';
 import { User } from '../users/models/User';
@@ -41,14 +42,21 @@ export class DashboardComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   events!: Event;
+  id: string="";
+  fetchMyEventsObject!:FetchMyEvents;
   constructor(private dashboardService: DashboardService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.isUser = JSON.parse(localStorage.getItem('status') || '{}');
-    if(this.isUser)
-    this.user = JSON.parse(localStorage.getItem('userDetails') || '{}');
-    else
-    this.organisation = JSON.parse(localStorage.getItem('orgDetails') || '{}');
+    if(this.isUser){
+      this.user = JSON.parse(localStorage.getItem('userDetails') || '{}');
+      console.log(this.user);
+      this.id=JSON.parse(localStorage.getItem('userDetails') || '{}').id;
+      console.log(this.user);
+    }else{
+      this.organisation = JSON.parse(localStorage.getItem('orgDetails') || '{}');
+      this.id=JSON.parse(localStorage.getItem('orgDetails') || '{}').id;
+    }
   }
 
   createEvent(): void{
@@ -63,7 +71,8 @@ export class DashboardComponent implements OnInit {
       city: this.eventCity,
       pinCode: Number(this.eventZip),
       startDate: this.startDate,
-      endDate: this.endDate
+      endDate: this.endDate,
+      organizationId: this.id
     }
 
     console.log(this.createEventObject);
@@ -74,6 +83,7 @@ export class DashboardComponent implements OnInit {
         verticalPosition: this.verticalPosition,
         duration: 2000,
       });
+      this.clearForm();
     },
     (err)=>{
       this._snackBar.open('Failure: In Event Creation!!', "",{
@@ -95,11 +105,38 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.searchEvents(this.searchQueryObject).subscribe((res)=>{
       this.eventReturn = JSON.stringify(res);
       this.eventResult=JSON.parse(this.eventReturn);
-      console.log(res);
       this.searchEventsQuery="";
     },(err)=>{
       this.searchEventsQuery="";
       this._snackBar.open('Search Fetch Failed!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      });
+    });
+  }
+
+  clearForm(): void{
+    this.eventName="";
+    this.eventDescription="";
+    this.eventRewards="";
+    this.eventLocation="";
+    this.eventPOCName="";
+    this.eventPOCContact="";
+    this.eventPOCEmail="";
+    this.eventCity="";
+    this.eventZip="";
+  }
+
+  fetchMyEvents(): void{
+    this.fetchMyEventsObject={
+      id: this.id,
+      isOrganizer: !this.isUser
+    }
+    this.dashboardService.fetchMyEvents(this.fetchMyEventsObject).subscribe((res)=>{
+      console.log(res);
+    }, (err)=>{
+      this._snackBar.open('My Events Fetch Failed!!', "",{
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
         duration: 2000,
