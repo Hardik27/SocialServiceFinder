@@ -57,6 +57,21 @@ public class UserService {
         updateUsers(user);
     }
 
+    public void deleteUsers(User user) {
+        boolean id_assigned = false;
+        for (int tries = 0; tries < ASSIGN_ID_TRIES; tries++) {
+            try {
+                user.setDeleted(true);
+                userRepository.save(user);
+                id_assigned = true;
+                break;
+            } catch (MongoWriteException ignored) {
+            }
+        }
+        if (!id_assigned)
+            throw new InvalidUserException("Couldn't delete User, please try after sometime.");
+    }
+
     private void updateUsers(User user) {
         boolean id_assigned = false;
         for (int tries = 0; tries < ASSIGN_ID_TRIES; tries++) {
@@ -101,13 +116,13 @@ public class UserService {
         throw new InvalidLoginException("Authentication Failed");
     }
 
-    public Rewards fetchRewards(FetchMyRewards fetchMyRewards){
-        if(fetchMyRewards==null || fetchMyRewards.getId()==null || fetchMyRewards.getId().length()==0){
+    public Rewards fetchRewards(FetchMyRewards fetchMyRewards) {
+        if (fetchMyRewards == null || fetchMyRewards.getId() == null || fetchMyRewards.getId().length() == 0) {
             throw new InvalidFetchMyRewardsException("user id cannot be null or empty");
         }
-        User user=userRepository.findById(fetchMyRewards.getId());
-        if(user!=null){
-            Rewards r=new Rewards();
+        User user = userRepository.findById(fetchMyRewards.getId());
+        if (user != null) {
+            Rewards r = new Rewards();
             r.setId(fetchMyRewards.getId());
             r.setRewards(user.getRewards());
             return r;

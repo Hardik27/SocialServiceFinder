@@ -74,14 +74,27 @@ public class UserController {
         }
     }
 
+    @PostMapping
+    @RequestMapping("/delete/")
+    public ResponseEntity<String> deleteUser(@RequestBody User user) {
+        try {
+            userService.deleteUsers(user);
+            return ResponseEntity.status(HttpStatus.OK).body(null);
+        } catch (InvalidUserException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     @GetMapping
     @RequestMapping("/fetchMyRewards/")
     public ResponseEntity<Rewards> fetchRewards(@RequestBody FetchMyRewards f) {
         try {
-            if(f.getId()==null || f.getId().length()==0){
+            if (f.getId() == null || f.getId().length() == 0) {
                 return null;
             }
-            var rewards=userService.fetchRewards(f);
+            var rewards = userService.fetchRewards(f);
             return ResponseEntity.status(HttpStatus.OK).body(rewards);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

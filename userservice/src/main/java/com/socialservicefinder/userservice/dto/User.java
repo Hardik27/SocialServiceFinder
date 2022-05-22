@@ -22,6 +22,7 @@ public class User {
     private long pinCode;
     private List<OrganizationTypes> preferences;
     private long rewards;
+    private boolean isDeleted;
     private List<String> eventIds;
 
     @Override
@@ -31,7 +32,7 @@ public class User {
             events.append(a).append(", ");
         }
         return "User [name=" + name + ", email=" + email + ", dob=" + dob + ", phoneNo=" + phoneNo + ", address="
-                + address + ", city=" + city + ", pinCode=" + pinCode + ", preferences=" + preferences + ", id=" + id + ", eventIds=" + events + "]";
+                + address + ", city=" + city + ", pinCode=" + pinCode + ", preferences=" + preferences + ", id=" + id + ", eventIds=" + events + ", isDeleted=" + isDeleted + "]";
     }
 
     public User() {
@@ -39,7 +40,7 @@ public class User {
     }
 
     public User(String name, String email, LocalDate dob, String phoneNo, String address, String city, String password,
-                long pinCode, List<OrganizationTypes> preferences) {
+                long pinCode, List<OrganizationTypes> preferences, boolean isDeleted) {
         this.name = name;
         this.email = email;
         this.dob = dob;
@@ -49,6 +50,7 @@ public class User {
         this.password = password;
         this.pinCode = pinCode;
         this.preferences = preferences;
+        this.isDeleted = isDeleted;
     }
 
     public void assign_id() {
@@ -154,5 +156,13 @@ public class User {
 
     public void addEventId(String id) {
         eventIds.add(id);
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 }
