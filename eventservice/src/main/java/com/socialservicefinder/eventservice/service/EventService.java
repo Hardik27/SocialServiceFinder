@@ -128,4 +128,24 @@ public class EventService {
         } catch (Exception exception) {
         }
     }
+
+    public void deregisterUserForEvent(RegisterEvent eventToRegister) {
+        try {
+            String eventId = eventToRegister.getEventId();
+            String userId = eventToRegister.getUserId();
+            List<Event> events = findEventsByIds(Arrays.asList(eventId));
+            User user = userService.getUserById(userId);
+
+            for (Event event : events) {
+                event.getRegisteredUsers().remove(userId);
+                //eventRepository.save(event);
+                updateEvent(event);
+                user.getEventIds().remove(eventId);
+                userService.setNewRewardsForUser(user,-event.getRewards());
+                userService.updateUser(user);
+            }
+        } catch (Exception exception){
+        }
+    }
+
 }
