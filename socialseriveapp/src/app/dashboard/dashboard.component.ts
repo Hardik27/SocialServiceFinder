@@ -76,7 +76,8 @@ export class DashboardComponent implements OnInit {
       pinCode: Number(this.eventZip),
       startDate: this.startDate,
       endDate: this.endDate,
-      organizationId: this.id
+      organizationId: this.id,
+      deleted: false
     }
 
     console.log(this.createEventObject);
