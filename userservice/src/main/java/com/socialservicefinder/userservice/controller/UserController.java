@@ -100,4 +100,18 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
+
+    @GetMapping
+    @RequestMapping("/getUserDetials/")
+    public ResponseEntity<User> getUserDetails(@RequestBody String id) {
+        try {
+            if (id == null || id.length() == 0) {
+                return null;
+            }
+            User user = userService.getUserById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(user);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
 }

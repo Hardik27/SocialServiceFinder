@@ -1,6 +1,8 @@
 package com.socialservicefinder.organizationservice.service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import com.mongodb.MongoWriteException;
 import com.socialservicefinder.organizationservice.dto.Login;
@@ -40,11 +42,18 @@ public class OrganizationService {
         insertOrganization(organization);
     }
 
+    public Organization getOrganizationById(String Id) {
+        if (Id == null || Id.isEmpty())
+            return null;
+        Optional<Organization> organization = organizationRepository.findById(Id);
+        return organization.orElse(null);
+    }
+
     public void updateOrganization(Organization organization) {
         if (organization == null || organization.getEmail() == null || organization.getName() == null)
             throw new IllegalArgumentException("organization, email, name cannot be null or empty");
         Organization oldOrganization = organizationRepository.findById(organization.getId()).get();
-        if (organization.getPassword().length() == 0) {
+        if (organization.getPassword().length() == 0 || Objects.equals(organization.getPassword(), oldOrganization.getPassword())) {
             organization.setPassword(oldOrganization.getPassword());
         } else {
             organization.setPassword(codec.encrypt(organization.getPassword()));

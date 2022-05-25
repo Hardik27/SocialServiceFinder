@@ -1,9 +1,6 @@
 package com.socialservicefinder.userservice.service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import com.mongodb.MongoWriteException;
 import com.socialservicefinder.userservice.dto.FetchMyRewards;
@@ -63,7 +60,7 @@ public class UserService {
         if (user == null || user.getEmail() == null || user.getName() == null)
             throw new InvalidUserException("user or email or name cannot be null or empty");
         User oldUser = userRepository.findById(user.getId());
-        if (user.getPassword().length() == 0) {
+        if (user.getPassword().length() == 0 || Objects.equals(user.getPassword(), oldUser.getPassword())) {
             user.setPassword(oldUser.getPassword());
         } else {
             user.setPassword(codec.encrypt(user.getPassword()));
