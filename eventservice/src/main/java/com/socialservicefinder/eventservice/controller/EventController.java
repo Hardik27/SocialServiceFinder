@@ -107,7 +107,7 @@ public class EventController {
 
     @PutMapping
     @RequestMapping("/registerForEvent")
-    public ResponseEntity<String> registerUserForEvent(@RequestBody RegisterEvent eventToRegister){
+    public ResponseEntity<String> registerUserForEvent(@RequestBody RegisterEvent eventToRegister) {
         try {
             eventService.registerUserForEvent(eventToRegister);
             return ResponseEntity.status(HttpStatus.OK).body(null);

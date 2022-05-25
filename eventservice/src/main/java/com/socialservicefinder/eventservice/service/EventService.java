@@ -12,11 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.HashSet;
+import java.util.*;
 
 @Service
 @Component
@@ -44,9 +40,10 @@ public class EventService {
 
     public List<Event> findEventsByIds(List<String> eventIds) {
         Iterable<Event> itr = eventRepository.findAllById(eventIds);
+        Iterator<Event> iterator = itr.iterator();
         List<Event> events = new ArrayList<>();
-        while (itr.iterator().hasNext()) {
-            Event e = itr.iterator().next();
+        while (iterator.hasNext()) {
+            Event e = iterator.next();
             if (!e.isDeleted()) {
                 events.add(e);
             }

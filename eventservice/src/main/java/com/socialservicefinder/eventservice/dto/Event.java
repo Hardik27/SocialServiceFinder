@@ -28,9 +28,9 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event [name=" + name + ", description=" + description + ", phoneNo=" + phoneNo + ", email=" + email + ", POCName=" + pocName
-                + ", address=" + address + ", city=" + city + ", rewards=" + rewards + ", pinCode="
-                + pinCode + ", startDate=" + startDate.toString() + ", endDate=" + endDate.toString() + ", isDeleted=" + deleted + "]";
+        return "Event [name= " + name + " , description= " + description + " , phoneNo= " + phoneNo + " , email= " + email + " , POCName= " + pocName
+                + " , address= " + address + " , city= " + city + " , rewards= " + rewards + " , pinCode= "
+                + pinCode + " , startDate= " + startDate.toString() + " , endDate= " + endDate.toString() + " , isDeleted= " + deleted + " ]";
     }
 
     public Event() {
