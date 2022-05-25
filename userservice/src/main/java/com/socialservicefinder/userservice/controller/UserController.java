@@ -102,12 +102,13 @@ public class UserController {
     }
 
     @GetMapping
-    @RequestMapping("/getUserDetials/")
+    @RequestMapping("/getUserDetails/")
     public ResponseEntity<User> getUserDetails(@RequestBody String id) {
         try {
             if (id == null || id.length() == 0) {
                 return null;
             }
+            System.out.println("Id received is: "+id);
             User user = userService.getUserById(id);
             return ResponseEntity.status(HttpStatus.OK).body(user);
         } catch (Exception e) {

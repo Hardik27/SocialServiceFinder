@@ -18,6 +18,7 @@ export class DashboardService {
   public isUser!: boolean; 
   private organisation!: Organiser;
   private apiServerUrlUser = environment.baseUrlEvent;
+  private apiServerUrlOrg = environment.baseUrlOrg;
   constructor(private http: HttpClient) { }
 
   public setUser(user :User){
@@ -58,6 +59,16 @@ export class DashboardService {
   public fetchMyRewards(FetchMyRewards: FetchMyRewards){
     var url=`${this.apiServerUrlUser}/user/fetchMyRewards/`;
     return this.http.post<FetchMyRewards>(url, FetchMyRewards);
+  }
+
+  public refreshUserCache(id: String){
+    var url=`${this.apiServerUrlUser}/user/getUserDetails/`;
+    return this.http.post<User>(url, id);
+  }
+
+  public refreshOrganizerCache(id: String){
+    var url=`${this.apiServerUrlOrg}/organization/getOrganizationDetails/`;
+    return this.http.post<Organiser>(url, id);
   }
 
 }
