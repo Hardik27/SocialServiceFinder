@@ -37,7 +37,6 @@ export class EventPageComponent implements OnInit {
   }
 
   registerEvent(): void{
-    //console.log(this.event);
       this.eventRegistrationObject = {
         userId: this.userId,
         eventId: this.eventId
@@ -81,5 +80,29 @@ export class EventPageComponent implements OnInit {
       });
     });
 
+  }
+
+  cancelRegistration(): void{
+    this.eventRegistrationObject = {
+      userId: this.userId,
+      eventId: this.eventId
+    }
+    console.log(this.eventRegistrationObject);
+    this.eventRegisterService.cancelMyRegistartion(this.eventRegistrationObject).subscribe((res)=>{
+      this._snackBar.open('Registration cancelled Successful!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      })
+      console.log(res);
+      this.router.navigateByUrl("/dashboard")
+    },
+    (err)=>{
+      this._snackBar.open('Cancellation Failed!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      });
+    });
   }
 }
