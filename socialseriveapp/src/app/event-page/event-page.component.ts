@@ -37,7 +37,6 @@ export class EventPageComponent implements OnInit {
   }
 
   registerEvent(): void{
-    //console.log(this.event);
       this.eventRegistrationObject = {
         userId: this.userId,
         eventId: this.eventId

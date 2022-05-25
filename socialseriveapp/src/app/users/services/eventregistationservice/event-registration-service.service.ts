@@ -17,4 +17,8 @@ export class EventregistrationserviceService {
   public registerForEvent(eventRegistrationObject: EventRegistration): Observable<String>{
     return this.http.post<String>(`${this.apiServerUrlUser}/event/registerForEvent`,eventRegistrationObject);
   }
+
+  public updateEventDetails(eventUpdationObject: any): Observable<String>{
+    return this.http.post<String>(`${this.apiServerUrlUser}/event/update/`,eventUpdationObject);
+  }
 }
