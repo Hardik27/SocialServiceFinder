@@ -88,7 +88,7 @@ public class OrganizationController {
     }
 
     @GetMapping
-    @RequestMapping("/getOrganizationDetials/")
+    @RequestMapping("/getOrganizationDetails/")
     public ResponseEntity<Organization> getOrganizationDetails(@RequestBody String id) {
         try {
             if (id == null || id.length() == 0) {

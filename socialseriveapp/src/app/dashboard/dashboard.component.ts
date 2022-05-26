@@ -11,6 +11,7 @@ import { Organiser } from '../users/models/Organiser';
 import { SearchQuery } from '../users/models/SearchQuery';
 import { User } from '../users/models/User';
 import { DashboardService } from '../users/services/dashboardservice/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -47,19 +48,41 @@ export class DashboardComponent implements OnInit {
   fetchMyEventsObject!:FetchMyEvents;
   myEvents!: any[];
   fetchMyRewardsObject!:FetchMyRewards;
-  constructor(private dashboardService: DashboardService, private _snackBar: MatSnackBar) { }
+  constructor(private dashboardService: DashboardService, private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
+    this.refreshCache();
     this.isUser = JSON.parse(localStorage.getItem('status') || '{}');
     if(this.isUser){
       this.user = JSON.parse(localStorage.getItem('userDetails') || '{}');
-      console.log(this.user);
-      this.id=JSON.parse(localStorage.getItem('userDetails') || '{}').id;
       console.log(this.user);
       this.fetchMyRewards(this.id);
     }else{
       this.organisation = JSON.parse(localStorage.getItem('orgDetails') || '{}');
       this.id=JSON.parse(localStorage.getItem('orgDetails') || '{}').id;
+    }
+  }
+
+  refreshCache(): void{
+    this.isUser = JSON.parse(localStorage.getItem('status') || '{}');
+    if(this.isUser){
+      var id=String(JSON.parse(localStorage.getItem('userDetails') || '{}').id);
+      this.dashboardService.refreshUserCache(id).subscribe((res)=>{
+        console.log("Refreshing the user cache");
+        localStorage.setItem('userDetails', JSON.stringify(res));
+        this.user=JSON.parse(localStorage.getItem('userDetails') || '{}');
+      },
+      (err)=>{
+        console.log("Error in refreshing the cache");
+      });
+    }else{
+      var id=String(JSON.parse(localStorage.getItem('orgDetails') || '{}').id);
+      this.dashboardService.refreshOrganizerCache(id).subscribe((res)=>{
+        console.log("Refreshing the org cache");
+        localStorage.setItem('orgDetails', JSON.stringify(res));
+      },(err)=>{
+        console.log("Error in refreshing the cache");
+      });
     }
   }
 
@@ -143,10 +166,19 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchMyEvents(): void{
-    this.fetchMyEventsObject={
-      id: this.id,
-      isOrganizer: !this.isUser
+    if(this.isUser){
+      this.fetchMyEventsObject={
+        id: JSON.parse(localStorage.getItem("userDetails") || '{}').id,
+        isOrganizer: !this.isUser
+      }
+    }else{
+      this.fetchMyEventsObject={
+        
+        id: JSON.parse(localStorage.getItem("orgDetails") || '{}').id,
+        isOrganizer: !this.isUser
+      }
     }
+    
     this.dashboardService.fetchMyEvents(this.fetchMyEventsObject).subscribe((res)=>{
       console.log(res);
       this.myEvents=JSON.parse(JSON.stringify(res));
@@ -164,7 +196,6 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchMyRewards(id: string): void{
-    
     this.fetchMyRewardsObject={
       id: this.id
     };

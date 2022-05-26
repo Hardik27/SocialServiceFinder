@@ -50,7 +50,7 @@ export class EventPageComponent implements OnInit {
           duration: 2000,
         })
         console.log(res);
-        this.router.navigateByUrl("/dashboard")
+        this.router.navigateByUrl("/dashboard");
       },
       (err)=>{
         this._snackBar.open('Registartion Failed!!', "",{
@@ -80,6 +80,5 @@ export class EventPageComponent implements OnInit {
         duration: 2000,
       });
     });
-
   }
 }
