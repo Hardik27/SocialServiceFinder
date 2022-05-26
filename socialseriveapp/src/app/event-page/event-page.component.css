@@ -42,5 +42,12 @@
 .btn{
    padding-bottom: 50px;
    padding-top: 50px; 
+   margin-left: 50px;
+   margin-right: 50px;
+}
+
+.edit_button_css{
+    margin-left: 5px;
+   margin-right: 5px; 
 }
 

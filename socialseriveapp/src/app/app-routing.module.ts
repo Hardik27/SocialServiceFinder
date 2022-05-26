@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import {EventPageComponent} from "./event-page/event-page.component";
 import { UpdateProfileComponent } from "./update-profile/update-profile.component";
+import { UpdateEventComponent } from "./update-event/update-event.component";
 
 const routes: Routes = [
     { path: '', component: HomepageComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'eventPage', component: EventPageComponent },
-    {path: 'updateProfile', component: UpdateProfileComponent}
+    {path: 'updateProfile', component: UpdateProfileComponent},
+    {path: 'updateEvent', component: UpdateEventComponent}
 ];
 
 @NgModule({

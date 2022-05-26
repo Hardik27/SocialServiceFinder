@@ -30,6 +30,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { EventPageComponent } from './event-page/event-page.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UpdateEventComponent } from './update-event/update-event.component';
 
 
 
@@ -47,7 +48,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     LoginComponent,
     DashboardComponent,
     EventPageComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    UpdateEventComponent
   ],
   imports: [
     CommonModule,
