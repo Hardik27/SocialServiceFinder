@@ -12,7 +12,7 @@
     <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
     <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
     <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
-    <button  *ngIf = "myEvent && isUser" mat-raised-button color="primary" name="eventBtn" class="eventBtn">Cancel Registration</button>
+    <button  *ngIf = "myEvent && isUser" mat-raised-button color="primary" name="eventBtn" class="eventBtn" (click)="deregisterEvent()">Cancel Registration</button>
 </mat-card>
 </div>
 

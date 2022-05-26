@@ -80,4 +80,28 @@ export class EventPageComponent implements OnInit {
       });
     });
   }
+
+  deregisterEvent(): void{
+    this.eventRegistrationObject = {
+      userId: this.userId,
+      eventId: this.eventId
+    }
+    console.log(this.eventRegistrationObject);
+    this.eventRegisterService.deregisterForEvent(this.eventRegistrationObject).subscribe((res)=>{
+      this._snackBar.open('Deregistration Successful!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      })
+      console.log(res);
+      this.router.navigateByUrl("/dashboard");
+    },
+    (err)=>{
+      this._snackBar.open('Deregistartion Failed!!', "",{
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: 2000,
+      });
+    });
+}
 }
