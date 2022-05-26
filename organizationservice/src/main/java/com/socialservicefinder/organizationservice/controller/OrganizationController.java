@@ -86,4 +86,18 @@ public class OrganizationController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    @GetMapping
+    @RequestMapping("/getOrganizationDetials/")
+    public ResponseEntity<Organization> getOrganizationDetails(@RequestBody String id) {
+        try {
+            if (id == null || id.length() == 0) {
+                return null;
+            }
+            Organization organization = organizationService.getOrganizationById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(organization);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
 }
