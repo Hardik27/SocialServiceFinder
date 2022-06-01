@@ -6,3 +6,20 @@ body { margin: 0; font-family: Roboto; background-color: azure; }
 .errorHint{
     color: rgb(212, 16, 16);
 }
+
+mat-card-title{
+    letter-spacing: 2px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.underline-title {
+    background: #3f51b5;
+    height: 2px;
+    margin: -1.1rem auto 0 auto;
+    width: 89px;
+  }
+
+.margin-bottom-medium{
+    margin-bottom: 20px;
+}

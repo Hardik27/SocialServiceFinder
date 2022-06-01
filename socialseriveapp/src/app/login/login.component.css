@@ -6,9 +6,9 @@
 .form-container{
     position: relative;
     margin: auto;
-    width: 30%;
+    width: 50%;
     border-radius: 1em;
-    margin-top: 3%;
+    margin-top: 10%;
 }
 
 form{
@@ -28,4 +28,25 @@ mat-radio-button{
 #dobForm{
     position: relative;
     width: 46%;
+}
+
+
+.float-container {
+    padding: 20px;
+}
+
+.float-child-login-form {
+    width: 65%;
+    float: left;
+    padding: 20px;
+}  
+
+.float-child-side-content {
+    width: 35%;
+    float: left;
+    padding: 20px;
+}  
+
+.info-div{
+    margin-top: 20%;
 }

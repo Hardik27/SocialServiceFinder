@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../users/models/User';
 import { Organiser } from '../users/models/Organiser';
 import { Router } from '@angular/router';
+import { faEarth } from '@fortawesome/free-solid-svg-icons';
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faHourglass } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 import { UserregistrationService } from '../users/services/userregistrationservice/userregistration.service';
 import { OrganisationregistrationserviceService } from '../users/services/organisationregistrationservice/organisationregistrationservice.service';
@@ -37,7 +42,11 @@ export class RegistrationFormComponent implements OnInit {
 
   user!: User;
   organiser!: Organiser;
-
+  earthIcon=faEarth;
+  coinIcon=faCoins
+  hourglassIcon=faHourglass
+  searchIcon=faSearch;
+  calendarIcon=faCalendar;
   emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';

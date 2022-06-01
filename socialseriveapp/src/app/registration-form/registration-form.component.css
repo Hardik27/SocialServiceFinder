@@ -9,7 +9,6 @@
     width: fit-content;
     height: fit-content;
     border-radius: 1em;
-    margin-top: 3%;
 }
 
 form{
@@ -29,4 +28,24 @@ mat-radio-button{
 #dobForm{
     position: relative;
     width: 46%;
+}
+
+.float-container {
+    padding: 20px;
+}
+
+.float-child-reg-form {
+    width: 65%;
+    float: left;
+    padding: 20px;
+}  
+
+.float-child-side-content {
+    width: 35%;
+    float: left;
+    padding: 20px;
+}  
+
+.info-div{
+    margin-top: 20%;
 }

@@ -12,6 +12,7 @@ import { SearchQuery } from '../users/models/SearchQuery';
 import { User } from '../users/models/User';
 import { DashboardService } from '../users/services/dashboardservice/dashboard.service';
 import { Router } from '@angular/router';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ import { Router } from '@angular/router';
 })
 
 export class DashboardComponent implements OnInit {
+  loadIcon=faSpinner;
   user!: User;
   isUser!: boolean;
   organisation!: Organiser;

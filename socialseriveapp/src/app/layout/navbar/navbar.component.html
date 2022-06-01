@@ -6,12 +6,12 @@
 		<div class="nav" ></div>
 		<nav >
 			<span>
-				<button *ngIf="!loginStatus" id="loginBtn" mat-button [routerLink]="['/login']"> Login </button>
-				<button *ngIf="!loginStatus" id="registerBtn" mat-button [routerLink]="['/register']"> Register </button>
-				<button *ngIf="loginStatus" id="updateProfileBtn" mat-button [routerLink]="['/updateProfile']"> Update Profile </button>
-				<button *ngIf="loginStatus" id="dashboardBtn" mat-button [routerLink]="['/dashboard']"> Dashboard </button>
-				<button id="contactBtn"mat-button [routerLink]="['/contact']"> Contact us </button>
-				<button *ngIf="loginStatus" id="logoutBtn" mat-button (click)="logout()" [routerLink]="['']"> Logout </button>
+				<button *ngIf="!loginStatus" id="loginBtn" mat-button [routerLink]="['/login']"> <fa-icon [icon]="loginIcon"></fa-icon> &nbsp; LOGIN </button>
+				<button *ngIf="!loginStatus" id="registerBtn" mat-button [routerLink]="['/register']"> <fa-icon [icon]="registerIcon"></fa-icon> &nbsp; REGISTER </button>
+				<button *ngIf="loginStatus" id="updateProfileBtn" mat-button [routerLink]="['/updateProfile']"> <fa-icon [icon]="userIcon"></fa-icon> &nbsp; UPDATE PROFILE </button>
+				<button *ngIf="loginStatus" id="dashboardBtn" mat-button [routerLink]="['/dashboard']"> <fa-icon [icon]="dashboardIcon"></fa-icon> &nbsp; DASHBOARD </button>
+				<button id="contactBtn"mat-button [routerLink]="['/contact']"> <fa-icon [icon]="phoneIcon"></fa-icon> &nbsp; CONTACT US </button>
+				<button *ngIf="loginStatus" id="logoutBtn" mat-button (click)="logout()" [routerLink]="['']"><fa-icon [icon]="logoutIcon"></fa-icon> &nbsp; LOGOUT </button>
 			</span>
 		</nav>
 	</mat-toolbar-row>

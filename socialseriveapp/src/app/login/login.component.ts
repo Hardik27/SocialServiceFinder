@@ -9,6 +9,12 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 
+import { faEarth } from '@fortawesome/free-solid-svg-icons';
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faHourglass } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +27,11 @@ export class LoginComponent implements OnInit {
   loginObject!: Login;
   userType: string = "User";
   options: string[] = ['User', 'Organiser'];
-
+  earthIcon=faEarth;
+  coinIcon=faCoins
+  hourglassIcon=faHourglass
+  searchIcon=faSearch;
+  calendarIcon=faCalendar;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 

@@ -1,25 +1,45 @@
-<mat-card class = "form-container">
-    <mat-card-title>Login</mat-card-title>
-    <form method = "post">
-        <mat-radio-group name="userType" [(ngModel)]="userType" required="required">
-            <mat-radio-button *ngFor="let option of options" [value]="option">
-                {{option}}
-            </mat-radio-button>
-        </mat-radio-group><br>
-
-        <mat-form-field appearance="outline" class="form-input-field">
-            <mat-label>Email ID</mat-label>
-            <input matInput type="text" placeholder="Eg. johndoe@gmail.com" name="email" id="email"
-                [(ngModel)]="email">
-        </mat-form-field><br>
-
-        <mat-form-field appearance="outline" class="form-input-field">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Password" name="password" id="password" [(ngModel)]="password">
-        </mat-form-field><br>
-        <mat-card-actions align = "end">
-            <button mat-button name="loginBtn" id="loginBtn" (click)="login()">Login</button>
-            <button mat-button name="clearBtn" id="clearBtn">Clear</button>
-        </mat-card-actions>
-    </form>
-</mat-card>
+<div class="float-container">
+    <div class="float-child-login-form">
+        <mat-card class = "form-container">
+            <mat-card-title>Login</mat-card-title>
+            <div class="underline-title"></div>
+            <form method = "post">
+                <mat-radio-group name="userType" [(ngModel)]="userType" required="required">
+                    <mat-radio-button *ngFor="let option of options" [value]="option">
+                        {{option}}
+                    </mat-radio-button>
+                </mat-radio-group><br>
+        
+                <mat-form-field appearance="outline" class="form-input-field">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput type="text" placeholder="Eg. johndoe@gmail.com" name="email" id="email"
+                        [(ngModel)]="email">
+                </mat-form-field><br>
+        
+                <mat-form-field appearance="outline" class="form-input-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" name="password" id="password" [(ngModel)]="password">
+                </mat-form-field><br>
+                <mat-card-actions align = "end">
+                    <button mat-button name="loginBtn" id="loginBtn" (click)="login()">Login</button>
+                    <button mat-button name="clearBtn" id="clearBtn">Clear</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+    <div class="float-child-side-content">
+        <div class="info-div">
+            <h2>Are you a Volunteer? Create an account to:</h2>
+            <p><fa-icon [icon]="searchIcon"></fa-icon> &nbsp; Search and Register for the social drives</p>
+            <p><fa-icon [icon]="hourglassIcon"></fa-icon> &nbsp; Contribute your time for the social good</p>
+            <p><fa-icon [icon]="coinIcon"></fa-icon> &nbsp; Earn reward points for good deeds</p>
+            <p><fa-icon [icon]="earthIcon"></fa-icon> &nbsp; Help make the world a better place!!!!</p>
+        </div>
+        <div class="info-div">
+            <h2>Are you an Organization? Create an account to:</h2>
+            <p><fa-icon [icon]="calendarIcon"></fa-icon> &nbsp; Organize social drives for the good cause</p>
+            <p><fa-icon [icon]="searchIcon"></fa-icon> &nbsp; Find volunteers quickly and cost-effectively</p>
+            <p><fa-icon [icon]="earthIcon"></fa-icon> &nbsp; Help make the world a better place!!!!</p>
+        </div>
+    </div>
+</div>
