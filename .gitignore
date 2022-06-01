@@ -80,3 +80,5 @@ baseline.json
 .husky/_
 
 .angular
+
+/socialseriveapp/package-lock.json
