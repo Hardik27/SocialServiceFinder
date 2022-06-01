@@ -5,6 +5,7 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { faSignIn } from '@fortawesome/free-solid-svg-icons';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faGift } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
   logoutIcon=faSignOut;
   loginIcon=faSignIn;
   registerIcon=faUserPlus;
-
+  redeemIcon=faGift;
   constructor() { }
 
   ngOnInit(): void {

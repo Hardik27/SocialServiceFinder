@@ -32,7 +32,8 @@ import { EventPageComponent } from './event-page/event-page.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UpdateEventComponent } from './update-event/update-event.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-
+import { RedeemRewardsComponent } from './redeemRewards/redeemRewards.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -49,7 +50,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     DashboardComponent,
     EventPageComponent,
     UpdateProfileComponent,
-    UpdateEventComponent
+    UpdateEventComponent,
+    RedeemRewardsComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatSnackBarModule,
     MatDividerModule,
     MatExpansionModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,57 @@
+.banner{
+    height: 35%;
+    background-color: #9db8b4;
+}
+
+.brands{
+    margin-top: 2%;
+}
+
+.brands h2{
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.ssf-logo{
+    margin: auto;
+    width: 15%;
+    height: 15%;
+}
+
+.SSF{
+    text-align: center !important;
+}
+
+.SSF h2{
+    letter-spacing: 1px;
+    text-align: center;
+    color: white;
+}
+
+.SSF h4{
+    letter-spacing: 1px;
+    text-align: center;
+    color: white;
+}
+
+
+.content {
+    padding: 25px;
+}
+
+.content > mat-card {
+    width: 300px;
+    object-fit: cover;
+    height: 300px;
+}
+
+.brand-card{
+    border-radius: 10px;
+    height: 250px;
+}
+
+.brand-image{
+    margin-top: 2px !important;
+    height: 100%;
+}
+
