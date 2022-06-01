@@ -8,6 +8,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import {EventPageComponent} from "./event-page/event-page.component";
 import { UpdateProfileComponent } from "./update-profile/update-profile.component";
 import { UpdateEventComponent } from "./update-event/update-event.component";
+import { RedeemRewardsComponent } from "./redeemRewards/redeemRewards.component";
 
 const routes: Routes = [
     { path: '', component: HomepageComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'eventPage', component: EventPageComponent },
     {path: 'updateProfile', component: UpdateProfileComponent},
-    {path: 'updateEvent', component: UpdateEventComponent}
+    {path: 'updateEvent', component: UpdateEventComponent},
+    {path: 'redeemRewards', component:RedeemRewardsComponent}
 ];
 
 @NgModule({
