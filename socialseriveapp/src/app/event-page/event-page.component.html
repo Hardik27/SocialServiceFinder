@@ -9,7 +9,6 @@
     <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
     <mat-card-content>
         <p class = "details">{{event.description}}</p>
-        
         <p class = "details">Rewards: {{event.rewards}} <img src="../../assets/coin.gif" style="width: 2.5%"></p>
         <p class="event-description-title">Event Details</p>
         <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
@@ -26,12 +25,15 @@
             <br>Contact: {{event.phoneNo}}
         </p>
     </mat-card-content>
+    <mat-card-actions align = "end">
+        <div style="margin-top: 1%; padding-bottom: 2% !important; margin: auto !important;">
+            <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
+            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
+            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
+            <button  *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn">Cancel Registration</button>
+        </div>
+    </mat-card-actions>
 </mat-card>
-<div style="margin-top: 1%; align-items: center;">
-    <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
-    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
-    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
-    <button  *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn">Cancel Registration</button>
-</div>
+
 </div>
 

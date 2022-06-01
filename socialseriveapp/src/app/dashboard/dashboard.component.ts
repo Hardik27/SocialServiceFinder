@@ -14,6 +14,14 @@ import { DashboardService } from '../users/services/dashboardservice/dashboard.s
 import { Router } from '@angular/router';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-regular-svg-icons';
+import { faHandshake } from '@fortawesome/free-solid-svg-icons';
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -52,6 +60,14 @@ export class DashboardComponent implements OnInit {
   myEvents!: any[];
   fetchMyRewardsObject!:FetchMyRewards;
   plusIcon=faPlus;
+  buildingIcon=faBuilding;
+  emailIcon=faEnvelope;
+  addressIcon=faAddressCard;
+  phoneIcon=faPhone;
+  calendarIcon=faCalendar;
+  helpIcon=faHandshake;
+  coinIcon=faCoins;
+  preferenceIcon=faCheckSquare;
 
   constructor(private dashboardService: DashboardService, private _snackBar: MatSnackBar, private router: Router) { }
 

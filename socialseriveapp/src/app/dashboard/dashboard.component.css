@@ -16,7 +16,7 @@ mat-expansion-panel{
 .search-Results{
     position: relative;
     margin: auto;
-    width: 85%;
+    width: 65%;
     border-radius: 1em;
     margin-top: 1%;
 }
