@@ -6,12 +6,13 @@
 </mat-card>
 <mat-card class="event-description">
     <mat-card-subtitle class="event-description-title">Description</mat-card-subtitle>
-    <hr>
+    <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
     <mat-card-content>
         <p class = "details">{{event.description}}</p>
         
         <p class = "details">Rewards: {{event.rewards}} <img src="../../assets/coin.gif" style="width: 2.5%"></p>
-        <p class="event-description-title">Event Details</p><hr>
+        <p class="event-description-title">Event Details</p>
+        <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
         <p class = "details"> Start Date: {{event.startDate}}
             <br>End Date: {{event.endDate}}
             <br>Event Location: {{event.address}}
@@ -19,7 +20,7 @@
             <br>Pincode: {{event.pinCode}}
         </p>
 
-        <p class="event-description-title">Need Help?</p><hr>
+        <p class="event-description-title">Need Help?</p><div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
         <p class = "details"> Name: {{event.pocName}}
             <br>Email: {{event.email}}
             <br>Contact: {{event.phoneNo}}
@@ -29,7 +30,7 @@
 <div style="margin-top: 1%; align-items: center;">
     <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
     <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
-    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
+    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
     <button  *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn">Cancel Registration</button>
 </div>
 </div>

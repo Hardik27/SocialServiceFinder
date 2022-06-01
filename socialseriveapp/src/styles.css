@@ -8,7 +8,7 @@ body { margin: 0; font-family: Roboto; background-color: azure; }
 }
 
 mat-card-title{
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-align: center;
     padding-bottom: 15px;
 }

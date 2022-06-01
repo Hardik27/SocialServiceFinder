@@ -21,8 +21,7 @@
                     <input matInput type="password" placeholder="Password" name="password" id="password" [(ngModel)]="password">
                 </mat-form-field><br>
                 <mat-card-actions align = "end">
-                    <button mat-button name="loginBtn" id="loginBtn" (click)="login()">Login</button>
-                    <button mat-button name="clearBtn" id="clearBtn">Clear</button>
+                    <button mat-flat-button name="loginBtn" color="primary" id="loginBtn" (click)="login()" style="margin: auto !important">Login</button>
                 </mat-card-actions>
             </form>
         </mat-card>
