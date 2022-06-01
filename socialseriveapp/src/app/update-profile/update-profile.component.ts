@@ -2,8 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../users/models/User';
 import { Organiser } from '../users/models/Organiser';
 import { UpdateProfileService } from '../users/services/updateprofileservice/updateprofileservice.service';
-// import { DashboardService } from '../users/services/dashboardservice/dashboard.service';
-// import { DashboardComponent } from '../dashboard/dashboard.component';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCoins } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 import {
@@ -32,6 +38,14 @@ export class UpdateProfileComponent implements OnInit{
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
     verticalPosition: MatSnackBarVerticalPosition = 'top';
 
+    emailIcon=faEnvelope;
+    addressIcon=faAddressCard;
+    phoneIcon=faPhone;
+    calendarIcon=faCalendar;
+    buildingIcon=faBuilding;
+    preferenceIcon=faCheckSquare;
+    userIcon=faUserAlt;
+    coinIcon=faCoins;
     constructor(private updateProfileService: UpdateProfileService,
       private router: Router,
       private _snackBar: MatSnackBar) {

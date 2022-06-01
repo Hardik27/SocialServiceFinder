@@ -31,7 +31,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { EventPageComponent } from './event-page/event-page.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UpdateEventComponent } from './update-event/update-event.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 
@@ -71,7 +71,8 @@ import { UpdateEventComponent } from './update-event/update-event.component';
     MatNativeDateModule,
     MatSnackBarModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

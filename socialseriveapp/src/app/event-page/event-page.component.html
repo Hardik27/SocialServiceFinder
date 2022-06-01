@@ -1,18 +1,39 @@
-<div>
-<mat-card class = "search-Results">
+<div class="search-Results">
+<mat-card>
 <mat-card-title>
     <h1 class="title">{{event.name}}</h1>
 </mat-card-title>
-    <p class = "details"> Start Date: {{event.startDate}}
-    <br>Contact: {{event.phoneNo}}
-    <br>Email: {{event.email}}
-    <br>Address: {{event.address}}, {{event.city}} , {{event.pinCode}}</p>
-    <p class = "description" style="text-decoration: underline; font-size: 16px; font-weight: bold;">Description:</p>
-    <h3 class = "description">{{event.description}}</h3>
-    <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
-    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
-    <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
-    <button  *ngIf = "myEvent && isUser" mat-raised-button color="primary" name="eventBtn" class="eventBtn">Cancel Registration</button>
 </mat-card>
+<mat-card class="event-description">
+    <mat-card-subtitle class="event-description-title">Description</mat-card-subtitle>
+    <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
+    <mat-card-content>
+        <p class = "details">{{event.description}}</p>
+        <p class = "details">Rewards: {{event.rewards}} <img src="../../assets/coin.gif" style="width: 2.5%"></p>
+        <p class="event-description-title">Event Details</p>
+        <div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
+        <p class = "details"> Start Date: {{event.startDate}}
+            <br>End Date: {{event.endDate}}
+            <br>Event Location: {{event.address}}
+            <br>Event City: {{event.city}}
+            <br>Pincode: {{event.pinCode}}
+        </p>
+
+        <p class="event-description-title">Need Help?</p><div class="underline-title" style="margin-top:10px; margin-bottom: 3%;"></div>
+        <p class = "details"> Name: {{event.pocName}}
+            <br>Email: {{event.email}}
+            <br>Contact: {{event.phoneNo}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions align = "end">
+        <div style="margin-top: 1%; padding-bottom: 2% !important; margin: auto !important;">
+            <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
+            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
+            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
+            <button  *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn">Cancel Registration</button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
 </div>
 

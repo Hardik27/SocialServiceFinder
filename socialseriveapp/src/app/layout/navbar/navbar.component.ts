@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {faHome} from '@fortawesome/free-solid-svg-icons';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faSignIn } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   loginStatus: string="";
-  
+  dashboardIcon=faHome;
+  userIcon=faUser;
+  phoneIcon=faPhone;
+  logoutIcon=faSignOut;
+  loginIcon=faSignIn;
+  registerIcon=faUserPlus;
+
   constructor() { }
 
   ngOnInit(): void {

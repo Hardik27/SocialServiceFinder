@@ -1,9 +1,10 @@
 .form-container{
     position: relative;
     margin: auto;
-    width: 30%;
+    width: 90%;
     border-radius: 1em;
     margin-top: 3%;
+    border: dotted #3f51b5 1px;
 }
 mat-expansion-panel{
     position: relative;
@@ -15,13 +16,9 @@ mat-expansion-panel{
 .search-Results{
     position: relative;
     margin: auto;
-    width: 85%;
+    width: 65%;
     border-radius: 1em;
     margin-top: 1%;
-}
-
-.createEventForm{
-    width: 40% !important;
 }
 
 .searchForm {
@@ -70,4 +67,21 @@ mat-expansion-panel{
   box-shadow: 0 0 3px 0 #1183d6;
   border-color: #1183d6;
   outline: none;
+}
+
+.half-width-left{
+  width: 40%;
+  margin-right: 5%;
+  margin-left: 2.5%;
+}
+
+.half-width-right{
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 2.5%;
+}
+
+.mat-card-actions{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
