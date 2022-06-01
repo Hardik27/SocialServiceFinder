@@ -150,6 +150,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getEventDataMyEvent(event: any): void{
+    console.log(event)
     localStorage.setItem("currEvent", JSON.stringify(event));
     localStorage.setItem("myEvent",JSON.stringify(true));
   }

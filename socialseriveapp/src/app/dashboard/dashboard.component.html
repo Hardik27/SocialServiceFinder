@@ -117,14 +117,13 @@
 <div>
   <mat-card class = "search-Results" *ngFor="let event of myEvents">
     <mat-card-title>
-      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline; cursor: pointer;" (click) = "getEventDataMyEvent(event)" [routerLink]="['/eventPage']">{{event.name}}</p>
+      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline;" >{{event.name}}</p>
+      <button  mat-raised-button color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"  (click) = "getEventDataMyEvent(event)" [routerLink]="['/eventPage']">View More</button>
     </mat-card-title>
     <mat-card-content>
       <p style="color:gray; padding-top: 1px; padding-bottom: 1px;"> Start Date: {{event.startDate}}
-      <br>Contact: {{event.phoneNo}}
-      <br>Email: {{event.email}}
-      <br>Address: {{event.address}}, {{event.city}} , {{event.pinCode}}</p>
-      <h3>About: {{event.description}}</h3>
+      <br>End Date: {{event.endDate}}
+      <br>Reward Points: {{event.rewards}}</p>
     </mat-card-content>
   </mat-card>
 </div>
@@ -144,14 +143,15 @@
 <div>
   <mat-card class = "search-Results" *ngFor="let event of eventResult">
     <mat-card-title>
-      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline; cursor: pointer;" (click) = "getEventData(event)" [routerLink]="['/eventPage']">{{event.name}}</p>
+      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline; cursor: pointer;">{{event.name}}</p>
+      <button  mat-raised-button color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"   (click) = "getEventData(event)" [routerLink]="['/eventPage']">View More</button>
     </mat-card-title>
     <mat-card-content>
-      <p style="color:gray; padding-top: 1px; padding-bottom: 1px;"> Start Date: {{event.startDate}}
-      <br>Contact: {{event.phoneNo}}
-      <br>Email: {{event.email}}
-      <br>Address: {{event.address}}, {{event.city}} , {{event.pinCode}}</p>
-      <h3>About: {{event.description}}</h3>
+      <mat-card-content>
+        <p style="color:gray; padding-top: 1px; padding-bottom: 1px;"> Start Date: {{event.startDate}}
+        <br>End Date: {{event.endDate}}
+        <br>Reward Points: {{event.rewards}}</p>
+      </mat-card-content>
     </mat-card-content>
   </mat-card>
 </div>
