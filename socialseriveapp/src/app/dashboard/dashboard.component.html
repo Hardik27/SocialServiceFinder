@@ -117,8 +117,8 @@
 <div>
   <mat-card class = "search-Results" *ngFor="let event of myEvents">
     <mat-card-title>
-      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline;" >{{event.name}}</p>
-      <button  mat-raised-button color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"  (click) = "getEventDataMyEvent(event)" [routerLink]="['/eventPage']">View More</button>
+      <p  style="color:#3f51b5; text-align: initial !important; " >{{event.name}}</p>
+      <button class="form-button"  mat-raised-button color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"  (click) = "getEventDataMyEvent(event)" [routerLink]="['/eventPage']">Learn More</button>
     </mat-card-title>
     <mat-card-content>
       <p style="color:gray; padding-top: 1px; padding-bottom: 1px;"> Start Date: {{event.startDate}}
@@ -143,8 +143,8 @@
 <div>
   <mat-card class = "search-Results" *ngFor="let event of eventResult">
     <mat-card-title>
-      <p style="color:#3f51b5; text-align: initial !important; text-decoration: underline; cursor: pointer;">{{event.name}}</p>
-      <button  mat-raised-button color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"   (click) = "getEventData(event)" [routerLink]="['/eventPage']">View More</button>
+      <p style="color:#3f51b5; text-align: initial !important; ">{{event.name}}</p>
+      <button   class="form-button" mat-raised-button  color="primary" name="eventBtn" id="deleteBtn"  style = "position: relative; float: right;"   (click) = "getEventData(event)" [routerLink]="['/eventPage']">Learn More</button>
     </mat-card-title>
     <mat-card-content>
       <mat-card-content>

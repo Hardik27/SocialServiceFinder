@@ -68,6 +68,8 @@ export class DashboardComponent implements OnInit {
   helpIcon=faHandshake;
   coinIcon=faCoins;
   preferenceIcon=faCheckSquare;
+  formattedEventStartDate: string="";
+  formattedEventEndDate: string="";
 
   constructor(private dashboardService: DashboardService, private _snackBar: MatSnackBar, private router: Router) { }
 
@@ -234,5 +236,20 @@ export class DashboardComponent implements OnInit {
 
   isNumber(contact: any): boolean {
     return !isNaN(contact);
+  }
+
+  formatDate(date: Date, isStartDate: boolean): void{
+    var monthArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var dayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var numericalDate=date.getDate();
+    var day=dayArray[date.getDay()];
+    var month=monthArray[date.getMonth()];
+    var year=date.getFullYear();
+
+    if(isStartDate){
+      this.formattedEventStartDate=String(day)+" "+String(numericalDate)+" "+String(month)+", "+String(year);
+    }else{
+      this.formattedEventEndDate=String(day)+" "+String(numericalDate)+" "+String(month)+", "+String(year);
+    }
   }
 }
