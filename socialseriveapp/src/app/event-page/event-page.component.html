@@ -27,10 +27,10 @@
     </mat-card-content>
     <mat-card-actions align = "end">
         <div style="margin-top: 1%; padding-bottom: 2% !important; margin: auto !important;">
-            <button  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
-            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
-            <button  *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css" [routerLink]="['/updateEvent']">Edit event</button>
-            <button  *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn" (click)="deregisterEvent()">Cancel Registration</button>
+            <button class="form-button"  *ngIf = "!myEvent && isUser" mat-raised-button color="primary" name="eventBtn" id="registerBtn" (click)="registerEvent()">Register</button>
+            <button class="form-button-warm" *ngIf = "myEvent && !isUser" mat-raised-button color="warn" name="eventBtn" id="deleteBtn" (click)="deleteEvent()">Delete event</button>
+            <button *ngIf = "myEvent && !isUser" mat-raised-button color="primary" name="eventBtn" class="edit_button_css form-button" [routerLink]="['/updateEvent']">Edit event</button>
+            <button *ngIf = "myEvent && isUser" mat-raised-button color="warn" name="eventBtn" class="eventBtn form-button-warm" (click)="deregisterEvent()">Cancel Registration</button>
         </div>
     </mat-card-actions>
 </mat-card>
